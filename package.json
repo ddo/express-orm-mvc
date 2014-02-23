@@ -1,0 +1,26 @@
+{
+  "name": "express-orm-mvc",
+  "version": "0.0.0",
+  "description": "Express + ORM MVC",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "clear && node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://ddo@github.com/ddo/express-orm-mvc.git"
+  },
+  "keywords": [
+    "express",
+    "orm",
+    "mvc",
+    "template"
+  ],
+  "author": "ddo <joeddo89@gmail.com> (http://ddo.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ddo/express-orm-mvc/issues"
+  },
+  "homepage": "https://github.com/ddo/express-orm-mvc"
+}
