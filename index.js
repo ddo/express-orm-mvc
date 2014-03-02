@@ -1,1 +1,1 @@
-module.exports = require('./lib/express-orm-mvc');
+module.exports = require('./lib/');
