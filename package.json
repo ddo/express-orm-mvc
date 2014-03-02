@@ -17,7 +17,7 @@
     "mvc",
     "template"
   ],
-  "author": "ddo <joeddo89@gmail.com> (http://ddo.me/)",
+  "author": "Ddo <joeddo89@gmail.com> (http://ddo.me/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ddo/express-orm-mvc/issues"
