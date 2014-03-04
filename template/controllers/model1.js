@@ -1,5 +1,5 @@
 module.exports = {
     home: function (req, res, next) {
-        res.send('home');
+        res.send('testing ok');
     }
 };

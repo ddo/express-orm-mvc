@@ -1,6 +1,5 @@
-var app = require('express-orm-mvc');
-app(function(err) {
-    if(err) {
+var mvc = require('../index');
+mvc(function(err, app, db) {
+    if(err)
         console.log(err);
-    }
 });

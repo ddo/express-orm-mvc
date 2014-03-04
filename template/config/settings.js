@@ -8,7 +8,7 @@ module.exports = {
             protocol: 'mysql',
             user: 'root',
             password: '123456789',
-            database: 'test',
+            database: 'express-orm-mvc-test',
             connectionLimit: 100
         }
     },
@@ -21,7 +21,7 @@ module.exports = {
             protocol: 'mysql',
             user: 'root',
             password: '123456789',
-            database: 'server',
+            database: 'express-orm-mvc-test',
             connectionLimit: 100
         }
     }
