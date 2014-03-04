@@ -1,5 +1,5 @@
 module.exports = function(app, controllers) {
-    app.get( '/'    , controllers.web.home);
-    app.get( '/get' , controllers.order.get);
-    app.get( '/set' , controllers.order.set);
+    app.get(    '/'         , controllers.model1.home);
+    app.get(    '/model2'   , controllers.model2.get);
+    app.post(   '/model2'   , controllers.model2.create);
 };
