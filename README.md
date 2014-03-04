@@ -5,12 +5,7 @@ Hope this help someone.
 
 Any ideas are appreciated.
 
-##Project in development
-##Document will be available soon
-
-##TODO
-
- * Models autoload
- * Controllers autoload
- * ORM on error event
- * ORM auto reconnect
+Project in development
+=======
+Document will be available soon
+=======
