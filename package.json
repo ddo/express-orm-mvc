@@ -24,7 +24,9 @@
     "url": "https://github.com/ddo/express-orm-mvc/issues"
   },
   "homepage": "https://github.com/ddo/express-orm-mvc",
-  "dependencies": {},
+  "dependencies": {
+    "callsite": "^1.0.0"
+  },
   "devDependencies": {
     "orm": "^2.1.3",
     "mysql": "^2.1.0",
