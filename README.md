@@ -45,13 +45,13 @@ Please check [example](example) folder or follow these document
 ###Init
 
 ```js
-	require(express-orm-mvc)(function(err){
-		if(err) {
-			console.log(err);
-			return;
-		}
-		console.log('done');
-	});
+require(express-orm-mvc)(function(err){
+	if(err) {
+		console.log(err);
+		return;
+	}
+	console.log('done');
+});
 ```
 
 ###Models
@@ -59,9 +59,9 @@ Please check [example](example) folder or follow these document
 A model file should be like this
 
 ```js
-	module.exports = function (orm, db) {
-    	//define your orm model here
-	};	
+module.exports = function (orm, db) {
+    //define your orm model here
+};	
 ```
 
 Example:
@@ -69,10 +69,10 @@ Example:
 	models/post.js
 	
 ```js
-	module.exports = function (orm, db) {
-    var Post = db.define('post', {
-        title:      { type: 'text' },
-        content:    { type: 'text' }
+module.exports = function (orm, db) {
+	var Post = db.define('post', {
+		title:      { type: 'text' },
+		content:    { type: 'text' }
     });
 };
 ```
@@ -84,9 +84,9 @@ Check ORM document [Defining Models](https://github.com/dresende/node-orm2/wiki/
 A controller file should be like this
 
 ```js
-	module.exports = {
-    	//define your controller here
-	};
+module.exports = {
+    //define your controller here
+};
 ```
 
 Example:
@@ -94,24 +94,24 @@ Example:
 	controllers/post.js
 	
 ```js
-	module.exports = {
-		home: function(req, res, next){
-			res.send('home page');
-		},
-    	get: function(req, res, next) {
-        	req.models.post.find(function(err, data) {
-            	res.send(data);
-        	});
-    	},
-    	create: function(req, res, next) {
-        	req.models.model2.create({
-            	title: 'title',
-            	content: 'content'
-        	}, function(err, result) {
-            	res.send(result);
-        	});
-    	}
-	};
+module.exports = {
+	home: function(req, res, next){
+		res.send('home page');
+	},
+    get: function(req, res, next) {
+        req.models.post.find(function(err, data) {
+            res.send(data);
+        });
+    },
+    create: function(req, res, next) {
+        req.models.post.create({
+            title: 'title',
+            content: 'content'
+        }, function(err, result) {
+            res.send(result);
+        });
+    }
+};
 ```
 
 ###Settings
@@ -179,20 +179,20 @@ Check ORM document [Connecting to Database](https://github.com/dresende/node-orm
 A express config file should be like this
 
 ```js
-	module.exports = function(app) {
-    	//any express config here
-	};
+module.exports = function(app) {
+    //any express config here
+};
 ```
 
 Example:
 
 ```js
-	module.exports = function(app) {
-    	app.set('title', 'testing');    	
-    	app.set('views', '../views');
-       	app.set('view engine', 'ejs');
-    	app.use(express.favicon());
-	};
+module.exports = function(app) {
+    app.set('title', 'testing');    	
+    app.set('views', '../views');
+	app.set('view engine', 'ejs');
+    app.use(express.favicon());
+};
 ```
 
 Check Express document [api](http://expressjs.com/api.html)
@@ -200,7 +200,7 @@ Check Express document [api](http://expressjs.com/api.html)
 **Note**: Library will start a server automatically, so no need this kind of this stuff
 
 ```js
-	http.createServer(app).listen(function(){});
+http.createServer(app).listen(function(){});
 ```
 
 ###ORM config
@@ -210,17 +210,17 @@ Check Express document [api](http://expressjs.com/api.html)
 A orm config file should be like this
 
 ```js
-	module.exports = function(orm, db) {
-    	//any orm config here
-	};
+module.exports = function(orm, db) {
+    //any orm config here
+};
 ```
 
 Example:
 
 ```js
-	module.exports = function(orm, db) {
-    	db.settings.set('test', 'testing data');
-	};
+module.exports = function(orm, db) {
+    db.settings.set('test', 'testing data');
+};
 ```
 
 Check ORM document [Settings](https://github.com/dresende/node-orm2/wiki/Settings)
@@ -234,19 +234,19 @@ Check ORM document [Settings](https://github.com/dresende/node-orm2/wiki/Setting
 A routes config file should be like this
 
 ```js
-	module.exports = function(app, controllers) {
-		//routes here
-	};
+module.exports = function(app, controllers) {
+	//routes here
+};
 ```
 
 Example:
 
 ```js
-	module.exports = function(app, controllers) {
-    	app.get(    '/'       , controllers.post.home);
-    	app.get(    '/post'   , controllers.post.get);
-    	app.post(   '/post'   , controllers.post.create);
-	};
+module.exports = function(app, controllers) {
+    app.get(    '/'       , controllers.post.home);
+    app.get(    '/post'   , controllers.post.get);
+    app.post(   '/post'   , controllers.post.create);
+};
 ```
 
 ##API
@@ -254,13 +254,13 @@ Example:
 ###Quick init
 
 ```js
-	require(express-orm-mvc)(callback);
+require(express-orm-mvc)(callback);
 ```
 
 ###Init with options
 ```js
-	require(express-orm-mvc)({
-		mode: 'development' //default: production
-		path: __dirname
-	}, callback);
+require(express-orm-mvc)({
+	mode: 'development' //default: production
+	path: __dirname
+}, callback);
 ```
