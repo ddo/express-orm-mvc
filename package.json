@@ -1,6 +1,6 @@
 {
   "name": "express-orm-mvc",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Express + ORM MVC",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,8 @@
     "express",
     "orm",
     "mvc",
-    "template"
+    "template",
+    "structure"
   ],
   "author": "Ddo <joeddo89@gmail.com> (http://ddo.me/)",
   "license": "MIT",
