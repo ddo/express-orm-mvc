@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Express-orm-mvc by ddo</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/ddo/express-orm-mvc">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Express-orm-mvc</h1>
+            <h2>Express + ORM MVC</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/ddo/express-orm-mvc/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/ddo/express-orm-mvc/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a name="express--orm-mvc" class="anchor" href="#express--orm-mvc"><span class="octicon octicon-link"></span></a><a href="https://github.com/visionmedia/express">Express</a> + <a href="https://github.com/dresende/node-orm2">ORM</a> MVC</h1>
+
+<p>As everyone the 1st time I start to use express, there was many problem i have to solve as</p>
+
+<ul>
+<li>Database</li>
+<li>App structure</li>
+<li>Router</li>
+<li>Separate modules</li>
+<li>...</li>
+</ul><p>So hope this library help someone like me.</p>
+
+<p>Any ideas are appreciated.</p>
+
+<h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>MVC</li>
+<li>This library just help you to structure your code and scale up later</li>
+<li>No Express or ORM hack</li>
+<li>Config Express and ORM by yourself (Fully control)</li>
+</ul><h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<pre><code>npm install express-orm-mvc --save
+</code></pre>
+
+<h2>
+<a name="app-structure" class="anchor" href="#app-structure"><span class="octicon octicon-link"></span></a>App structure</h2>
+
+<pre><code>/
+    models/                     -- all of your models here
+    controllers/                -- all of your controllers here
+    views/
+    config/
+        express.js              -- your express config
+        orm.js                  -- your orm config
+        routes.js               -- router
+        settings.js             -- app settings (ip, port, database, ...)
+    app.js                      -- root
+</code></pre>
+
+<p>Please check <a href="example">example</a> folder</p>
+
+<h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<p>Please check <a href="example">example</a> folder or follow these document</p>
+
+<h3>
+<a name="init" class="anchor" href="#init"><span class="octicon octicon-link"></span></a>Init</h3>
+
+<div class="highlight highlight-js"><pre><span class="nx">require</span><span class="p">(</span><span class="nx">express</span><span class="o">-</span><span class="nx">orm</span><span class="o">-</span><span class="nx">mvc</span><span class="p">)({</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="nx">__dirname</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'done'</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="models" class="anchor" href="#models"><span class="octicon octicon-link"></span></a>Models</h3>
+
+<p>A model file should be like this</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">orm</span><span class="p">,</span> <span class="nx">db</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//define your orm model here</span>
+<span class="p">};</span>  
+</pre></div>
+
+<p>Example:</p>
+
+<pre><code>models/post.js
+</code></pre>
+
+<div class="highlight highlight-js"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">orm</span><span class="p">,</span> <span class="nx">db</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">Post</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">'post'</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">title</span><span class="o">:</span>      <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">'text'</span> <span class="p">},</span>
+        <span class="nx">content</span><span class="o">:</span>    <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">'text'</span> <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>Check ORM document <a href="https://github.com/dresende/node-orm2/wiki/Defining-Models">Defining Models</a></p>
+
+<h3>
+<a name="controllers" class="anchor" href="#controllers"><span class="octicon octicon-link"></span></a>Controllers</h3>
+
+<p>A controller file should be like this</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">//define your controller here</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>Example:</p>
+
+<pre><code>controllers/post.js
+</code></pre>
+
+<div class="highlight highlight-js"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">home</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">){</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'home page'</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">get</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">req</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">post</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">req</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">post</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+            <span class="nx">title</span><span class="o">:</span> <span class="s1">'title'</span><span class="p">,</span>
+            <span class="nx">content</span><span class="o">:</span> <span class="s1">'content'</span>
+        <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+<p><strong>Note:</strong> you can list all of your models in req.models</p>
+
+<h3>
+<a name="settings" class="anchor" href="#settings"><span class="octicon octicon-link"></span></a>Settings</h3>
+
+<pre><code>config/settings.js
+</code></pre>
+
+<p>A settings file should be like this</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">mode1</span><span class="o">:</span> <span class="p">{</span> <span class="c1">//development</span>
+        <span class="nx">ip</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">ip</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="nx">port</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">port</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="nx">db</span><span class="o">:</span> <span class="c1">// orm database setting object</span>
+    <span class="p">},</span>
+    <span class="nx">mode2</span><span class="o">:</span> <span class="p">{</span> <span class="c1">//production</span>
+        <span class="nx">ip</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">ip</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="nx">port</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">port</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="nx">db</span><span class="o">:</span> <span class="c1">// orm database setting object</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>Example:</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">development</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">ip</span><span class="o">:</span> <span class="s1">'127.0.0.1'</span><span class="p">,</span>
+        <span class="nx">port</span><span class="o">:</span> <span class="mi">8080</span><span class="p">,</span>
+        <span class="nx">db</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">host</span><span class="o">:</span> <span class="s1">'127.0.0.1'</span><span class="p">,</span>
+            <span class="nx">port</span><span class="o">:</span> <span class="mi">3306</span><span class="p">,</span>
+            <span class="nx">protocol</span><span class="o">:</span> <span class="s1">'mysql'</span><span class="p">,</span>
+            <span class="nx">user</span><span class="o">:</span> <span class="s1">'root'</span><span class="p">,</span>
+            <span class="nx">password</span><span class="o">:</span> <span class="s1">'123456789'</span><span class="p">,</span>
+            <span class="nx">database</span><span class="o">:</span> <span class="s1">'express-orm-mvc-test'</span><span class="p">,</span>
+            <span class="nx">connectionLimit</span><span class="o">:</span> <span class="mi">100</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">production</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">ip</span><span class="o">:</span> <span class="s1">'127.0.0.1'</span><span class="p">,</span>
+        <span class="nx">port</span><span class="o">:</span> <span class="mi">8080</span><span class="p">,</span>
+        <span class="nx">db</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">host</span><span class="o">:</span> <span class="s1">'127.0.0.1'</span><span class="p">,</span>
+            <span class="nx">port</span><span class="o">:</span> <span class="mi">3306</span><span class="p">,</span>
+            <span class="nx">protocol</span><span class="o">:</span> <span class="s1">'mysql'</span><span class="p">,</span>
+            <span class="nx">user</span><span class="o">:</span> <span class="s1">'root'</span><span class="p">,</span>
+            <span class="nx">password</span><span class="o">:</span> <span class="s1">'123456789'</span><span class="p">,</span>
+            <span class="nx">database</span><span class="o">:</span> <span class="s1">'express-orm-mvc-test'</span><span class="p">,</span>
+            <span class="nx">connectionLimit</span><span class="o">:</span> <span class="mi">100</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+<p><strong>Note</strong>: You should set your NODE_ENV variable (development or production), or you can by pass by send directly the mode option when init, check <a href="#init-with-options">here</a></p>
+
+<p>Check ORM document <a href="https://github.com/dresende/node-orm2/wiki/Connecting-to-Database">Connecting to Database</a></p>
+
+<h3>
+<a name="express-config" class="anchor" href="#express-config"><span class="octicon octicon-link"></span></a>Express config</h3>
+
+<pre><code>config/express.js
+</code></pre>
+
+<p>A express config file should be like this</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//any express config here</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>Example:</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'title'</span><span class="p">,</span> <span class="s1">'testing'</span><span class="p">);</span>        
+    <span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'views'</span><span class="p">,</span> <span class="s1">'../views'</span><span class="p">);</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'view engine'</span><span class="p">,</span> <span class="s1">'ejs'</span><span class="p">);</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">favicon</span><span class="p">());</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>Check Express document <a href="http://expressjs.com/api.html">api</a></p>
+
+<p><strong>Note</strong>:</p>
+
+<ul>
+<li>As you see there is no <code>views</code> folder in app structure, so create and manage by yourself</li>
+<li>Library will start a server automatically, so no need this kind of this stuff</li>
+</ul><div class="highlight highlight-js"><pre><span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="kd">function</span><span class="p">(){});</span>
+</pre></div>
+
+<h3>
+<a name="orm-config" class="anchor" href="#orm-config"><span class="octicon octicon-link"></span></a>ORM config</h3>
+
+<pre><code>config/orm.js
+</code></pre>
+
+<p>A orm config file should be like this</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">orm</span><span class="p">,</span> <span class="nx">db</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//any orm config here</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>Example:</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">orm</span><span class="p">,</span> <span class="nx">db</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">db</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'test'</span><span class="p">,</span> <span class="s1">'testing data'</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>Check ORM document <a href="https://github.com/dresende/node-orm2/wiki/Settings">Settings</a></p>
+
+<p><strong>Note</strong>: Library will <a href="https://github.com/dresende/node-orm2/wiki/Synching-and-Dropping-Models#wiki-synching">sync database</a> automatically.</p>
+
+<h3>
+<a name="routes-config" class="anchor" href="#routes-config"><span class="octicon octicon-link"></span></a>Routes config</h3>
+
+<pre><code>config/routes.js
+</code></pre>
+
+<p>A routes config file should be like this</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">controllers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//routes here</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>Example:</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">controllers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span>    <span class="s1">'/'</span>       <span class="p">,</span> <span class="nx">controllers</span><span class="p">.</span><span class="nx">post</span><span class="p">.</span><span class="nx">home</span><span class="p">);</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span>    <span class="s1">'/post'</span>   <span class="p">,</span> <span class="nx">controllers</span><span class="p">.</span><span class="nx">post</span><span class="p">.</span><span class="nx">get</span><span class="p">);</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>   <span class="s1">'/post'</span>   <span class="p">,</span> <span class="nx">controllers</span><span class="p">.</span><span class="nx">post</span><span class="p">.</span><span class="nx">create</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+
+<h2>
+<a name="init-with-options" class="anchor" href="#init-with-options"><span class="octicon octicon-link"></span></a>Init with options</h2>
+
+<div class="highlight highlight-js"><pre><span class="nx">require</span><span class="p">(</span><span class="nx">express</span><span class="o">-</span><span class="nx">orm</span><span class="o">-</span><span class="nx">mvc</span><span class="p">)({</span>
+    <span class="nx">mode</span><span class="o">:</span> <span class="s1">'development'</span> <span class="c1">//default: production</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="nx">__dirname</span>
+<span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>Todo</h2>
+
+<ul>
+<li>Caller dirname</li>
+</ul>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/ddo">ddo</a> can be found on <a href="https://github.com/ddo/express-orm-mvc">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-24951846-12");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
