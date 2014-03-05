@@ -264,4 +264,11 @@ require(express-orm-mvc)({
 
 ##Todo
 
+<<<<<<< HEAD
 * Express 4 testing
+=======
+* Caller dirname
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ddo/express-orm-mvc/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
+>>>>>>> aaaae50d706b810f84b453cd2395f5abe8101027
