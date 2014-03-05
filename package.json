@@ -1,6 +1,6 @@
 {
   "name": "express-orm-mvc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Express + ORM MVC",
   "main": "index.js",
   "scripts": {
