@@ -82,9 +82,7 @@
 <h3>
 <a name="init" class="anchor" href="#init"><span class="octicon octicon-link"></span></a>Init</h3>
 
-<div class="highlight highlight-js"><pre><span class="nx">require</span><span class="p">(</span><span class="nx">express</span><span class="o">-</span><span class="nx">orm</span><span class="o">-</span><span class="nx">mvc</span><span class="p">)({</span>
-    <span class="nx">path</span><span class="o">:</span> <span class="nx">__dirname</span>
-<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+<div class="highlight highlight-js"><pre><span class="nx">require</span><span class="p">(</span><span class="nx">express</span><span class="o">-</span><span class="nx">orm</span><span class="o">-</span><span class="nx">mvc</span><span class="p">)(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
     <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
         <span class="k">return</span><span class="p">;</span>
@@ -297,7 +295,7 @@
 
 <div class="highlight highlight-js"><pre><span class="nx">require</span><span class="p">(</span><span class="nx">express</span><span class="o">-</span><span class="nx">orm</span><span class="o">-</span><span class="nx">mvc</span><span class="p">)({</span>
     <span class="nx">mode</span><span class="o">:</span> <span class="s1">'development'</span> <span class="c1">//default: production</span>
-    <span class="nx">path</span><span class="o">:</span> <span class="nx">__dirname</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="nx">__dirname</span>     <span class="c1">//default: auto detect, if there is any problem pls set path = __dirname</span>
 <span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
 </pre></div>
 
@@ -305,8 +303,10 @@
 <a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>Todo</h2>
 
 <ul>
-<li>Caller dirname</li>
-</ul>
+<li>Express 4 testing</li>
+</ul><h1></h1>
+
+<p><a href="https://bitdeli.com/free" title="Bitdeli Badge"><img src="https://d2weczhvl823v0.cloudfront.net/ddo/express-orm-mvc/trend.png" alt="Bitdeli Badge"></a></p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/ddo">ddo</a></p>
