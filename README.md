@@ -45,7 +45,9 @@ Please check [example](example) folder or follow these document
 ###Init
 
 ```js
-require(express-orm-mvc)(function(err){
+require(express-orm-mvc)({
+	path: __dirname
+}, function(err){
 	if(err) {
 		console.log(err);
 		return;
@@ -253,18 +255,15 @@ module.exports = function(app, controllers) {
 };
 ```
 
-##API
+##Init with options
 
-###Quick init
-
-```js
-require(express-orm-mvc)(callback);
-```
-
-###Init with options
 ```js
 require(express-orm-mvc)({
 	mode: 'development' //default: production
 	path: __dirname
 }, callback);
 ```
+
+##Todo
+
+* Caller dirname
