@@ -1,6 +1,9 @@
 module.exports = {
+    home: function (req, res, next) {
+        res.send('home page');
+    },
     get: function (req, res, next) {
-        req.models.model2.find(function(err, data) {
+        req.models.post.find(function(err, data) {
             if(err) return next(err);
 
             if(data.length === 0) {
@@ -12,9 +15,9 @@ module.exports = {
         });
     },
     create: function (req, res, next) {
-        req.models.model2.create({
-            prop1: 'testing',
-            prop2: 'data'
+        req.models.post.create({
+            title: 'title',
+            content: 'content'
         }, function(err, result) {
             if(err) return next(err);
             res.send(result);
