@@ -8,7 +8,7 @@ describe("express-orm-mvc Test", function() {
     describe("app start", function() {
         it("error should be null", function(done) {
             mvc({
-                path: __dirname,
+                // path: __dirname,
                 mode: 'development'
             }, function(err, express_instance, db) {
                 app      = express_instance;
@@ -62,10 +62,12 @@ describe("express-orm-mvc Test", function() {
                 json: true
             }, function(err, res, body) {
                 expect(body).to.be.an('object');
-                expect(body).to.not.equal({
+                expect(body).to.be.eql({
                     prop1: 'testing',
-                    prop2: 'data'
+                    prop2: 'data',
+                    id: 1
                 });
+
                 done();
             });
         });
@@ -77,9 +79,10 @@ describe("express-orm-mvc Test", function() {
                 json: true
             }, function(err, res, body) {
                 expect(body).to.be.an('object');
-                expect(body).to.not.equal({
+                expect(body).to.be.eql({
                     prop1: 'testing',
-                    prop2: 'data'
+                    prop2: 'data',
+                    id: 1
                 });
 
                 //cleaning
