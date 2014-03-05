@@ -1,6 +1,6 @@
 [Express](https://github.com/visionmedia/express) + [ORM](https://github.com/dresende/node-orm2) MVC
 ===============
-The 1st time I see express and start to use it, there was many problem i have to solve as
+As everyone the 1st time I start to use express, there was many problem i have to solve as
 
 * Database
 * App structure
@@ -113,6 +113,7 @@ module.exports = {
     }
 };
 ```
+**Note:** you can list all of your models in req.models
 
 ###Settings
 
@@ -125,12 +126,12 @@ module.exports = {
     mode1: { //development
         ip: <ip>,
         port: <port>,
-        db: // orm setting object
+        db: // orm database setting object
     },
     mode2: { //production
         ip: <ip>,
         port: <port>,
-        db: // orm setting object
+        db: // orm database setting object
     }
 };
 ```
@@ -168,7 +169,7 @@ module.exports = {
 };
 ```
 
-**Note**: You should config your NODE_ENV variable (development or production), or you can by pass by send directly mode when init, check [here](#init-with-options)
+**Note**: You should set your NODE_ENV variable (development or production), or you can by pass by send directly the mode option when init, check [here](#init-with-options)
 
 Check ORM document [Connecting to Database](https://github.com/dresende/node-orm2/wiki/Connecting-to-Database)
 
@@ -197,7 +198,10 @@ module.exports = function(app) {
 
 Check Express document [api](http://expressjs.com/api.html)
 
-**Note**: Library will start a server automatically, so no need this kind of this stuff
+**Note**:
+
+* As you see there is no ```views``` folder in app structure, so create and manage by yourself
+* Library will start a server automatically, so no need this kind of this stuff
 
 ```js
 http.createServer(app).listen(function(){});
