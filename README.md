@@ -45,9 +45,7 @@ Please check [example](example) folder or follow these document
 ###Init
 
 ```js
-require(express-orm-mvc)({
-	path: __dirname
-}, function(err){
+require(express-orm-mvc)(function(err){
 	if(err) {
 		console.log(err);
 		return;
@@ -259,11 +257,11 @@ module.exports = function(app, controllers) {
 
 ```js
 require(express-orm-mvc)({
-	mode: 'development' //default: production
-	path: __dirname
+	mode: 'development'	//default: production
+	path: __dirname		//default: auto detect, if there is any problem pls set path = __dirname
 }, callback);
 ```
 
 ##Todo
 
-* Caller dirname
+* Express 4 testing
