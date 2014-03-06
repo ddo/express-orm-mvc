@@ -12,16 +12,16 @@ module.exports = {
             connectionLimit: 100
         }
     },
-    test: {
+    production: {
         ip: '127.0.0.1',
         port: 8080,
         db: {
             host: '127.0.0.1',
             port: 3306,
             protocol: 'mysql',
-            user: 'ubuntu',
-            password: '',
-            database: 'circle_test',
+            user: 'root',
+            password: 'test',
+            database: 'test',
             connectionLimit: 100
         }
     }
