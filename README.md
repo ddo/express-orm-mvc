@@ -180,7 +180,7 @@ Check ORM document [Connecting to Database](https://github.com/dresende/node-orm
 A express config file should be like this
 
 ```js
-module.exports = function(app) {
+module.exports = function(app, express) {
     //any express config here
 };
 ```
