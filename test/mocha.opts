@@ -1,2 +1,2 @@
 --reporter spec
---slow 1
+-t 5000
