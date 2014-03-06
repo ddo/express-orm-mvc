@@ -14,7 +14,7 @@ describe("Helper Test", function() {
 
     describe("#remoteDirname", function() {
         it("correct remote dirname", function() {
-            expect(helper.remoteDirname()).to.be.equal('/Users/Ddo/Code/Projects/express-orm-mvc/node_modules/mocha/lib');
+            expect(helper.remoteDirname()).to.be.contain('/express-orm-mvc/node_modules/mocha/lib');
         });
     });
 });
