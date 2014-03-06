@@ -16,7 +16,7 @@ module.exports = {
         ip: '127.0.0.1',
         port: 8080,
         db: {
-            host: '127.0.0.1',
+            host: process.env.WERCKER_MYSQL_HOST,
             port: 3306,
             protocol: 'mysql',
             user: 'wercker',
