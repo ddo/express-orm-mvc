@@ -19,9 +19,9 @@ module.exports = {
             host: '127.0.0.1',
             port: 3306,
             protocol: 'mysql',
-            user: 'root',
-            password: 'test',
-            database: 'test',
+            user: 'wercker',
+            password: 'wercker',
+            database: 'werckerdb1',
             connectionLimit: 100
         }
     }
