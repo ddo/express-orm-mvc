@@ -1,4 +1,6 @@
 box: wercker/nodejs
+services:
+  - wercker/mysql@1.0.1
 # Build definition
 build:
   # The steps that will be executed on build
