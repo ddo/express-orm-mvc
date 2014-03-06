@@ -188,7 +188,7 @@ module.exports = function(app) {
 Example:
 
 ```js
-module.exports = function(app) {
+module.exports = function(app, express) {
     app.set('title', 'testing');    	
     app.set('views', '../views');
 	app.set('view engine', 'ejs');
