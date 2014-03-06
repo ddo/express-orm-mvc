@@ -7,10 +7,7 @@ describe("express-orm-mvc Test", function() {
 
     describe("app start", function() {
         it("error should be null", function(done) {
-            mvc({
-                // path: __dirname,
-                mode: 'development'
-            }, function(err, express_instance, db) {
+            mvc(function(err, express_instance, db) {
                 app      = express_instance;
                 database = db;
 
