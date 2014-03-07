@@ -25,11 +25,6 @@ Any ideas are appreciated.
 
 	npm install express-orm-mvc --save
 	
-And for sure some dependencies
-
-	npm install express --save
-	npm install orm --save
-	
 Database package
 
 	npm install <your database package>
