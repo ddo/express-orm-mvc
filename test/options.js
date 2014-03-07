@@ -7,7 +7,9 @@ describe("Options Testing", function() {
 
     before(function(done) {
         //start server
-        require('../index')(function(err, mvc) {
+        require('../index')({
+            orm: orm
+        }, function(err, mvc) {
             _err = err;
             _mvc = mvc;
 
