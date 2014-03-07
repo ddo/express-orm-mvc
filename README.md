@@ -298,8 +298,8 @@ var orm = require('orm')            // ORM 2.1.0
 require(express-orm-mvc)({
     mode: 'development',
     path: '/Code/Project',
-    express: require('express'),
-    orm: require('orm')
+    express: express,
+    orm: orm
 }, callback);
 ```
 
@@ -320,7 +320,7 @@ require(express-orm-mvc)({
 ``mode`` the current mode
 
 ```js
-require(express-orm-mvc), functiom(err, mvc) {
+require(express-orm-mvc)(functiom(err, mvc) {
     mvc.express;
     mvc.orm;
     mvc.server;
