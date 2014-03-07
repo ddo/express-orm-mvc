@@ -12,6 +12,8 @@ So hope this library help someone like me.
 
 Any ideas are appreciated.
 
+![codeship](https://www.codeship.io/projects/db0d6920-87f7-0131-c865-5eebdd5ccdbf/status)
+
 ##Features
 
 * MVC

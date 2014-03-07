@@ -12,16 +12,16 @@ module.exports = {
             connectionLimit: 100
         }
     },
-    production: {
+    test: { //codeship
         ip: '127.0.0.1',
         port: 8080,
         db: {
-            host: process.env.WERCKER_MYSQL_HOST,
+            host: '127.0.0.1',
             port: 3306,
             protocol: 'mysql',
-            user: 'wercker',
-            password: 'wercker',
-            database: 'werckerdb1',
+            user: process.env.MYSQL_USER,
+            password: process.env.MYSQL_PASSWORD,
+            database: 'test',
             connectionLimit: 100
         }
     }
