@@ -1,7 +1,7 @@
 Express + ORM MVC
 ===============
 
-[![NPM version](https://badge.fury.io/js/express-orm-mvc.png)](http://badge.fury.io/js/oauth-1.0a)
+[![NPM version](https://badge.fury.io/js/express-orm-mvc.png)](http://badge.fury.io/js/express-orm-mvc)
 
 ![codeship](https://www.codeship.io/projects/db0d6920-87f7-0131-c865-5eebdd5ccdbf/status)
 
@@ -28,7 +28,7 @@ Any ideas are appreciated.
 
 ##Dependencies
 
-[![Dependency Status](https://david-dm.org/ddo/express-orm-mvc.png?theme=shields.io)](https://david-dm.org/ddo/oauth-1.0a)
+[![Dependency Status](https://david-dm.org/ddo/express-orm-mvc.png?theme=shields.io)](https://david-dm.org/ddo/express-orm-mvc)
 
 
 By default:
