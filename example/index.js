@@ -1,5 +1,8 @@
-var mvc = require('express-orm-mvc');
-mvc(function(err, app, db) {
-    if(err)
-        console.log(err);
+require('express-orm-mvc')(function(error, mvc) {
+    if(error)
+        return console.log(error);
+
+    console.log('Server is running');
+    console.log('Mode: %s', mvc.mode);
+    console.log('Port: %s', mvc.setting.port);
 });
