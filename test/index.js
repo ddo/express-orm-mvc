@@ -1,32 +1,53 @@
 var expect  = require('chai').expect;
 var request = require('request');
 
-describe("express-orm-mvc Test", function() {
-    var mvc = require('../index');
-    var app, database;
+describe("Default Testing", function() {
+    var _err, _mvc;
 
-    describe("app start", function() {
-        it("error should be null", function(done) {
-            mvc(function(err, express_instance, db) {
-                app      = express_instance;
-                database = db;
+    before(function(done) {
+        //start server
+        require('../index')(function(err, mvc) {
+            _err = err;
+            _mvc = mvc;
 
-                expect(err).to.be.a('null');
+            done();
+        });
+    });
 
+    after(function(done) {
+        //drop all tables
+        _mvc.database.drop(function() {
+            //shut down server
+            _mvc.server.close(function() {
                 done();
             });
         });
     });
 
+    describe("app start", function() {
+        it("error should be null", function(done) {
+            expect(_err).to.be.a('null');
+            expect(_mvc).to.have.property('server');
+            expect(_mvc).to.have.property('orm');
+            expect(_mvc).to.have.property('database');
+            expect(_mvc).to.have.property('express');
+            expect(_mvc).to.have.property('app');
+            expect(_mvc).to.have.property('setting');
+            expect(_mvc).to.have.property('mode');
+
+            done();
+        });
+    });
+
     describe("expess config", function() {
         it("expess set/get", function() {
-            expect(app.get('test')).to.equal('testing data');
+            expect(_mvc.app.get('test')).to.equal('testing data');
         });
     });
 
     describe("orm config", function() {
         it("orm set/get", function() {
-            expect(database.settings.get('test')).to.equal('testing data');
+            expect(_mvc.database.settings.get('test')).to.equal('testing data');
         });
     });
 
@@ -82,11 +103,7 @@ describe("express-orm-mvc Test", function() {
                     id: 1
                 });
 
-                //cleaning
-                //drop all table
-                database.drop(function() {
-                    done();
-                });
+                done();
             });
         });
     });
