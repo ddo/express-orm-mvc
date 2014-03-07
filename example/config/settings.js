@@ -21,7 +21,7 @@ module.exports = {
             protocol: 'mysql',
             user: 'root',
             password: '123456789',
-            database: 'express-orm-mvc-test',
+            database: 'production',
             connectionLimit: 100
         }
     }

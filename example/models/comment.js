@@ -1,5 +1,6 @@
 module.exports = function (orm, db) {
-    db.define('comment', {
+    var Comment = db.define('comment', {
         data: { type: 'text' }
     });
+    Comment.hasOne("post", db.models.post);
 };
