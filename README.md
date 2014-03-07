@@ -1,5 +1,10 @@
-[Express](https://github.com/visionmedia/express) + [ORM](https://github.com/dresende/node-orm2) MVC
+Express + ORM MVC
 ===============
+
+[![NPM version](https://badge.fury.io/js/express-orm-mvc.png)](http://badge.fury.io/js/oauth-1.0a)
+
+![codeship](https://www.codeship.io/projects/db0d6920-87f7-0131-c865-5eebdd5ccdbf/status)
+
 As everyone the 1st time I start to use express, there was many problem i have to solve as
 
 * Database
@@ -12,7 +17,7 @@ So hope this library help someone like me.
 
 Any ideas are appreciated.
 
-![codeship](https://www.codeship.io/projects/db0d6920-87f7-0131-c865-5eebdd5ccdbf/status)
+
 
 ##Features
 
@@ -20,6 +25,18 @@ Any ideas are appreciated.
 * This library just help you to structure your code and scale up later
 * No Express or ORM hack
 * Config Express and ORM by yourself (Fully control)
+
+##Dependencies
+
+[![Dependency Status](https://david-dm.org/ddo/express-orm-mvc.png?theme=shields.io)](https://david-dm.org/ddo/oauth-1.0a)
+
+
+By default:
+
+* [Express](https://github.com/visionmedia/express) v3.4.8
+* [ORM](https://github.com/dresende/node-orm2) v2.1.3
+
+You can specify those dependencies version by option, please refer to [this](#options)
 
 ##Installation
 
@@ -177,7 +194,7 @@ module.exports = {
 };
 ```
 
-**Note**: You should set your NODE_ENV variable (development or production), or you can by pass by send directly the mode option when init, check [here](#init-with-options)
+**Note**: You should set your NODE_ENV variable (development or production), or you can by pass by send directly the mode option when init, check [here](#options)
 
 Check ORM document [Connecting to Database](https://github.com/dresende/node-orm2/wiki/Connecting-to-Database)
 
@@ -261,18 +278,60 @@ module.exports = function(app, controllers) {
 };
 ```
 
-##Init with options
+##Options
 
 ```js
 require(express-orm-mvc)({
-	mode: 'development'	//default: production
-	path: __dirname		//default: auto detect, if there is any problem pls set path = __dirname
+	mode: 'development',           //default: production
+	path: __dirname,               //default: auto detect
+    express: require('express'),   //specify your express version 
+    orm: require('orm')            //specify your orm version
 }, callback);
 ```
 
+Example:
+
+```js
+var express = require('express')    // Express 4
+var orm = require('orm')            // ORM 2.1.0
+
+require(express-orm-mvc)({
+    mode: 'development',
+    path: '/Code/Project',
+    express: require('express'),
+    orm: require('orm')
+}, callback);
+```
+
+##Return object
+
+``express``
+
+``orm``
+
+``server`` web server instance
+
+``database`` orm database instance
+
+``app`` express app instance
+
+``setting`` the current settings
+
+``mode`` the current mode
+
+```js
+require(express-orm-mvc), functiom(err, mvc) {
+    mvc.express;
+    mvc.orm;
+    mvc.server;
+    mvc.database;
+    mvc.app;
+    mvc.setting;
+    mvc.mode;
+});
+```
 ##Todo
 
 * Express 4 testing
 
-===
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ddo/express-orm-mvc/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
