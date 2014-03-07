@@ -29,7 +29,11 @@
       </header>
       <section>
         <h1>
-<a name="express--orm-mvc" class="anchor" href="#express--orm-mvc"><span class="octicon octicon-link"></span></a><a href="https://github.com/visionmedia/express">Express</a> + <a href="https://github.com/dresende/node-orm2">ORM</a> MVC</h1>
+<a name="express--orm-mvc" class="anchor" href="#express--orm-mvc"><span class="octicon octicon-link"></span></a>Express + ORM MVC</h1>
+
+<p><a href="http://badge.fury.io/js/express-orm-mvc"><img src="https://badge.fury.io/js/express-orm-mvc.png" alt="NPM version"></a></p>
+
+<p><img src="https://www.codeship.io/projects/db0d6920-87f7-0131-c865-5eebdd5ccdbf/status" alt="codeship"></p>
 
 <p>As everyone the 1st time I start to use express, there was many problem i have to solve as</p>
 
@@ -52,10 +56,31 @@
 <li>No Express or ORM hack</li>
 <li>Config Express and ORM by yourself (Fully control)</li>
 </ul><h2>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<p><a href="https://david-dm.org/ddo/express-orm-mvc"><img src="https://david-dm.org/ddo/express-orm-mvc.png?theme=shields.io" alt="Dependency Status"></a></p>
+
+<p>By default:</p>
+
+<ul>
+<li>
+<a href="https://github.com/visionmedia/express">Express</a> v3.4.8</li>
+<li>
+<a href="https://github.com/dresende/node-orm2">ORM</a> v2.1.3</li>
+</ul><p>You can specify those dependencies version by option, please refer to <a href="#options">this</a></p>
+
+<h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <pre><code>npm install express-orm-mvc --save
 </code></pre>
+
+<p>Database package</p>
+
+<pre><code>npm install &lt;your database package&gt;
+</code></pre>
+
+<p>Refer to ORM document <a href="https://github.com/dresende/node-orm2/wiki/Connecting-to-Database">Connecting to Database</a></p>
 
 <h2>
 <a name="app-structure" class="anchor" href="#app-structure"><span class="octicon octicon-link"></span></a>App structure</h2>
@@ -207,7 +232,7 @@
 <span class="p">};</span>
 </pre></div>
 
-<p><strong>Note</strong>: You should set your NODE_ENV variable (development or production), or you can by pass by send directly the mode option when init, check <a href="#init-with-options">here</a></p>
+<p><strong>Note</strong>: You should set your NODE_ENV variable (development or production), or you can by pass by send directly the mode option when init, check <a href="#options">here</a></p>
 
 <p>Check ORM document <a href="https://github.com/dresende/node-orm2/wiki/Connecting-to-Database">Connecting to Database</a></p>
 
@@ -291,12 +316,55 @@
 </pre></div>
 
 <h2>
-<a name="init-with-options" class="anchor" href="#init-with-options"><span class="octicon octicon-link"></span></a>Init with options</h2>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
 
 <div class="highlight highlight-js"><pre><span class="nx">require</span><span class="p">(</span><span class="nx">express</span><span class="o">-</span><span class="nx">orm</span><span class="o">-</span><span class="nx">mvc</span><span class="p">)({</span>
-    <span class="nx">mode</span><span class="o">:</span> <span class="s1">'development'</span> <span class="c1">//default: production</span>
-    <span class="nx">path</span><span class="o">:</span> <span class="nx">__dirname</span>     <span class="c1">//default: auto detect, if there is any problem pls set path = __dirname</span>
+    <span class="nx">mode</span><span class="o">:</span> <span class="s1">'development'</span><span class="p">,</span>           <span class="c1">//default: production</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="nx">__dirname</span><span class="p">,</span>               <span class="c1">//default: auto detect</span>
+    <span class="nx">express</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">),</span>   <span class="c1">//specify your express version </span>
+    <span class="nx">orm</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'orm'</span><span class="p">)</span>            <span class="c1">//specify your orm version</span>
 <span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+</pre></div>
+
+<p>Example:</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">)</span>    <span class="c1">// Express 4</span>
+<span class="kd">var</span> <span class="nx">orm</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'orm'</span><span class="p">)</span>            <span class="c1">// ORM 2.1.0</span>
+
+<span class="nx">require</span><span class="p">(</span><span class="nx">express</span><span class="o">-</span><span class="nx">orm</span><span class="o">-</span><span class="nx">mvc</span><span class="p">)({</span>
+    <span class="nx">mode</span><span class="o">:</span> <span class="s1">'development'</span><span class="p">,</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">'/Code/Project'</span><span class="p">,</span>
+    <span class="nx">express</span><span class="o">:</span> <span class="nx">express</span><span class="p">,</span>
+    <span class="nx">orm</span><span class="o">:</span> <span class="nx">orm</span>
+<span class="p">},</span> <span class="nx">callback</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="return-object" class="anchor" href="#return-object"><span class="octicon octicon-link"></span></a>Return object</h2>
+
+<p><code>express</code></p>
+
+<p><code>orm</code></p>
+
+<p><code>server</code> web server instance</p>
+
+<p><code>database</code> orm database instance</p>
+
+<p><code>app</code> express app instance</p>
+
+<p><code>setting</code> the current settings</p>
+
+<p><code>mode</code> the current mode</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">require</span><span class="p">(</span><span class="nx">express</span><span class="o">-</span><span class="nx">orm</span><span class="o">-</span><span class="nx">mvc</span><span class="p">)(</span><span class="nx">functiom</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">mvc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">mvc</span><span class="p">.</span><span class="nx">express</span><span class="p">;</span>
+    <span class="nx">mvc</span><span class="p">.</span><span class="nx">orm</span><span class="p">;</span>
+    <span class="nx">mvc</span><span class="p">.</span><span class="nx">server</span><span class="p">;</span>
+    <span class="nx">mvc</span><span class="p">.</span><span class="nx">database</span><span class="p">;</span>
+    <span class="nx">mvc</span><span class="p">.</span><span class="nx">app</span><span class="p">;</span>
+    <span class="nx">mvc</span><span class="p">.</span><span class="nx">setting</span><span class="p">;</span>
+    <span class="nx">mvc</span><span class="p">.</span><span class="nx">mode</span><span class="p">;</span>
+<span class="p">});</span>
 </pre></div>
 
 <h2>
@@ -304,9 +372,7 @@
 
 <ul>
 <li>Express 4 testing</li>
-</ul><h1></h1>
-
-<p><a href="https://bitdeli.com/free" title="Bitdeli Badge"><img src="https://d2weczhvl823v0.cloudfront.net/ddo/express-orm-mvc/trend.png" alt="Bitdeli Badge"></a></p>
+</ul><p><a href="https://bitdeli.com/free" title="Bitdeli Badge"><img src="https://d2weczhvl823v0.cloudfront.net/ddo/express-orm-mvc/trend.png" alt="Bitdeli Badge"></a></p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/ddo">ddo</a></p>
