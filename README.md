@@ -1,7 +1,13 @@
 express-orm-mvc
 ===============
 
-[![NPM version](https://badge.fury.io/js/express-orm-mvc.png)](http://badge.fury.io/js/express-orm-mvc) [![Dependency Status](https://david-dm.org/ddo/express-orm-mvc.png?theme=shields.io)](https://david-dm.org/ddo/express-orm-mvc) [![Coverage Status](https://coveralls.io/repos/ddo/express-orm-mvc/badge.png?branch=master)](https://coveralls.io/r/ddo/express-orm-mvc?branch=master) ![codeship](https://www.codeship.io/projects/db0d6920-87f7-0131-c865-5eebdd5ccdbf/status)
+[![NPM version](https://badge.fury.io/js/express-orm-mvc.png)](http://badge.fury.io/js/express-orm-mvc)
+[![Dependency Status](https://gemnasium.com/ddo/express-orm-mvc.png)](https://gemnasium.com/ddo/express-orm-mvc)
+
+[![Coverage Status](https://coveralls.io/repos/ddo/express-orm-mvc/badge.png?branch=master)](https://coveralls.io/r/ddo/express-orm-mvc?branch=master)
+[![Code Climate](https://codeclimate.com/github/ddo/express-orm-mvc.png)](https://codeclimate.com/github/ddo/express-orm-mvc)
+
+![codeship](https://www.codeship.io/projects/db0d6920-87f7-0131-c865-5eebdd5ccdbf/status)
 
 As everyone the 1st time I start to use express, there was many problem i have to solve as
 
