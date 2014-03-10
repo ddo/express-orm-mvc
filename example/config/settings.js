@@ -14,13 +14,13 @@ module.exports = {
     },
     production: {
         ip: '127.0.0.1',
-        port: 8080,
+        port: 8000,
         db: {
             host: '127.0.0.1',
             port: 3306,
             protocol: 'mysql',
-            user: 'root',
-            password: '123456789',
+            user: 'user',
+            password: 'password',
             database: 'production',
             connectionLimit: 100
         }
