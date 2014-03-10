@@ -3,3 +3,4 @@ node_modules
 test
 example
 README.md
+.coveralls.yml
