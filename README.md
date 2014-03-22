@@ -42,13 +42,13 @@ You can specify those dependencies version by option, please refer to [this](#op
 ##Installation
 
 	npm install express-orm-mvc --save
-	
+
 Database package
 
 	npm install <your database package>
-	
+
 Refer to ORM document [Connecting to Database](https://github.com/dresende/node-orm2/wiki/Connecting-to-Database)
-	
+
 ##App structure
 
 	/
@@ -61,7 +61,7 @@ Refer to ORM document [Connecting to Database](https://github.com/dresende/node-
 			routes.js				-- router
 			settings.js				-- app settings (ip, port, database, ...)
 		app.js						-- root
-		
+
 Please check [example](example) folder
 
 ##How to use
@@ -87,13 +87,13 @@ A model file should be like this
 ```js
 module.exports = function (orm, db) {
     //define your orm model here
-};	
+};
 ```
 
 Example:
 
 	models/post.js
-	
+
 ```js
 module.exports = function (orm, db) {
 	var Post = db.define('post', {
@@ -118,7 +118,7 @@ module.exports = {
 Example:
 
 	controllers/post.js
-	
+
 ```js
 module.exports = {
 	home: function(req, res, next){
@@ -144,7 +144,7 @@ module.exports = {
 ###Settings
 
 	config/settings.js
-	
+
 A settings file should be like this
 
 ```js
@@ -200,9 +200,9 @@ module.exports = {
 Check ORM document [Connecting to Database](https://github.com/dresende/node-orm2/wiki/Connecting-to-Database)
 
 ###Express config
-	
+
 	config/express.js
-	
+
 A express config file should be like this
 
 ```js
@@ -215,7 +215,7 @@ Example:
 
 ```js
 module.exports = function(app, express) {
-    app.set('title', 'testing');    	
+    app.set('title', 'testing');
     app.set('views', '../views');
 	app.set('view engine', 'ejs');
     app.use(express.favicon());
@@ -236,7 +236,7 @@ http.createServer(app).listen(function(){});
 ###ORM config
 
 	config/orm.js
-	
+
 A orm config file should be like this
 
 ```js
@@ -260,7 +260,7 @@ Check ORM document [Settings](https://github.com/dresende/node-orm2/wiki/Setting
 ###Routes config
 
 	config/routes.js
-	
+
 A routes config file should be like this
 
 ```js
@@ -285,7 +285,7 @@ module.exports = function(app, controllers) {
 require(express-orm-mvc)({
 	mode: 'development',           //default: production
 	path: __dirname,               //default: auto detect
-    express: require('express'),   //specify your express version 
+    express: require('express'),   //specify your express version
     orm: require('orm')            //specify your orm version
 }, callback);
 ```
@@ -334,5 +334,3 @@ require(express-orm-mvc)(functiom(err, mvc) {
 ##Todo
 
 * Express 4 testing
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ddo/express-orm-mvc/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
