@@ -34,8 +34,8 @@ Any ideas are appreciated.
 
 By default:
 
-* [Express](https://github.com/visionmedia/express) v3.4.8
-* [ORM](https://github.com/dresende/node-orm2) v2.1.3
+* [Express](https://github.com/visionmedia/express) ^4.0.0
+* [ORM](https://github.com/dresende/node-orm2) ^2.1.5
 
 You can specify those dependencies version by option, please refer to [this](#options)
 
@@ -46,6 +46,9 @@ You can specify those dependencies version by option, please refer to [this](#op
 Database package
 
 	npm install <your database package>
+
+    //example
+    npm install mysql
 
 Refer to ORM document [Connecting to Database](https://github.com/dresende/node-orm2/wiki/Connecting-to-Database)
 
@@ -104,6 +107,16 @@ module.exports = function (orm, db) {
 ```
 
 Check ORM document [Defining Models](https://github.com/dresende/node-orm2/wiki/Defining-Models)
+
+####Note:
+
+``express-orm-mvc`` loads models by alphabet order.
+
+For example ``comment`` model has one ``post`` (many-to-one relationship) as ``post_id`` field, so ``post`` model must be loaded before ``comment`` model.
+
+Solution: name the file models name as ``0_post.js`` and ``comment.js``.
+
+You can check [example](example)
 
 ###Controllers
 
@@ -331,6 +344,3 @@ require(express-orm-mvc)(functiom(err, mvc) {
     mvc.mode;
 });
 ```
-##Todo
-
-* Express 4 testing
