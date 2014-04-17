@@ -6,6 +6,10 @@ module.exports = {
         req.models.post.find({id: req.params.id}, function(err, data) {
             if(err) return next(err);
 
+            if(!data.length) {
+                res.send(false);
+            }
+
             res.send(data[0]);
         });
     },

@@ -1,5 +1,11 @@
 module.exports = function(app, controllers) {
-    app.get(    '/'       , controllers.post.home);
-    app.get(    '/post'   , controllers.post.get);
-    app.post(   '/post'   , controllers.post.create);
+    app.get(    '/'             , controllers.post.home);
+    
+    app.get(    '/post/:id'     , controllers.post.get);
+    app.get(    '/posts'        , controllers.post.getall);
+    app.post(   '/post'         , controllers.post.create);
+
+    app.get(    '/comment/:id'  , controllers.comment.get);
+    app.get(    '/comments'     , controllers.comment.getall);
+    app.post(   '/comment'      , controllers.comment.create);
 };

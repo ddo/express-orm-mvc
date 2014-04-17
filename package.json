@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/ddo/express-orm-mvc",
   "dependencies": {
-    "express": "^3.4.8",
-    "orm": "^2.1.3",
+    "express": "^4.0.0",
+    "orm": "^2.1.5",
     "callsite": "^1.0.0"
   },
   "devDependencies": {
@@ -33,8 +33,11 @@
     "mocha": "^1.17.1",
     "chai": "^1.9.0",
     "request": "^2.34.0",
-    "orm-2.1.3": "^2.1.3",
     "coveralls": "^2.8.0",
-    "istanbul": "^0.2.6"
+    "orm-2.1.3": "^2.1.3",
+    "istanbul": "^0.2.6",
+    "errorhandler": "^1.0.0",
+    "morgan": "^1.0.0",
+    "body-parser": "^1.0.2"
   }
 }

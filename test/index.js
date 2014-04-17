@@ -57,14 +57,14 @@ describe("Default Testing", function() {
                 url: 'http://localhost:8080',
                 method: 'GET'
             }, function(err, res, body) {
-                expect(body).to.equal('testing ok');
+                expect(body).to.equal('home page');
                 done();
             });
         });
 
         it("get empty", function(done) {
             request({
-                url: 'http://localhost:8080/model2',
+                url: 'http://localhost:8080/post/1',
                 method: 'GET',
                 json: true
             }, function(err, res, body) {
@@ -73,16 +73,16 @@ describe("Default Testing", function() {
             });
         });
 
-        it("create", function(done) {
+        it("create post", function(done) {
             request({
-                url: 'http://localhost:8080/model2',
+                url: 'http://localhost:8080/post',
                 method: 'POST',
                 json: true
             }, function(err, res, body) {
                 expect(body).to.be.an('object');
                 expect(body).to.be.eql({
-                    prop1: 'testing',
-                    prop2: 'data',
+                    title: 'title',
+                    content: 'content',
                     id: 1
                 });
 
@@ -90,17 +90,56 @@ describe("Default Testing", function() {
             });
         });
 
-        it("get", function(done) {
+        it("create comment", function(done) {
             request({
-                url: 'http://localhost:8080/model2',
+                url: 'http://localhost:8080/comment',
+                method: 'POST',
+                json: true
+            }, function(err, res, body) {
+                expect(body).to.be.an('object');
+                expect(body).to.be.eql({
+                    data: 'comment data',
+                    id: 1,
+                    post_id: 1
+                });
+
+                done();
+            });
+        });
+
+        it("get post", function(done) {
+            request({
+                url: 'http://localhost:8080/post/1',
                 method: 'GET',
                 json: true
             }, function(err, res, body) {
                 expect(body).to.be.an('object');
                 expect(body).to.be.eql({
-                    prop1: 'testing',
-                    prop2: 'data',
-                    id: 1
+                    title: 'title',
+                    content: 'content',
+                    id: 1,
+                });
+
+                done();
+            });
+        });
+
+        it("get comment", function(done) {
+            request({
+                url: 'http://localhost:8080/comment/1',
+                method: 'GET',
+                json: true
+            }, function(err, res, body) {
+                expect(body).to.be.an('object');
+                expect(body).to.be.eql({
+                    data: 'comment data',
+                    id: 1,
+                    post_id: 1,
+                    post: {
+                        title: 'title',
+                        content: 'content',
+                        id: 1,
+                    }
                 });
 
                 done();
