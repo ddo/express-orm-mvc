@@ -6,6 +6,4 @@ module.exports = function(app, controllers) {
     app.post(   '/post'         , controllers.post.create);
 
     app.get(    '/comment/:id'  , controllers.comment.get);
-    app.get(    '/comments'     , controllers.comment.getall);
-    app.post(   '/comment'      , controllers.comment.create);
 };
