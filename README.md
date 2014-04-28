@@ -329,7 +329,7 @@ require(express-orm-mvc)({
 
 ``app`` express app instance
 
-``setting`` the current settings
+``settings`` the current settings
 
 ``mode`` the current mode
 
