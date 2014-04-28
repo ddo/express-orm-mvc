@@ -349,7 +349,7 @@ require(express-orm-mvc)(functiom(err, mvc) {
 
 For your convenience, you can get
 
-* ``models``: all the orm Smodels
+* ``models``: all the orm models
 * ``settings``: the running setings
 * ``mode``: the running mode
 
