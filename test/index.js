@@ -32,7 +32,7 @@ describe("Default Testing", function() {
             expect(_mvc).to.have.property('database');
             expect(_mvc).to.have.property('express');
             expect(_mvc).to.have.property('app');
-            expect(_mvc).to.have.property('setting');
+            expect(_mvc).to.have.property('settings');
             expect(_mvc).to.have.property('mode');
 
             done();
