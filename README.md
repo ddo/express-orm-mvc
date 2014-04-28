@@ -349,11 +349,11 @@ require(express-orm-mvc)(functiom(err, mvc) {
 
 For your convenience, you can get
 
-* ``models``
-* ``settings``
-* ``mode``
+* ``models``: all the orm Smodels
+* ``settings``: the running setings
+* ``mode``: the running mode
 
-from express req
+###from express req
 
 ```js
 function (req, res, next) {
@@ -361,4 +361,23 @@ function (req, res, next) {
     req.settings;
     req.mode;
 }
+```
+
+###from express config file
+
+```js
+//config/express.js
+module.exports = function(app, express, mvc) {
+    mvc.mode
+    mvc.settings
+};
+```
+
+###from orm config file
+```js
+//config/orm.js
+module.exports = function(orm, db, mvc) {
+    mvc.mode
+    mvc.settings
+};
 ```
