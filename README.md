@@ -152,7 +152,7 @@ module.exports = {
     }
 };
 ```
-**Note:** you can list all of your models in req.models
+**Note:** you can list all of your models in req.models, check more [here](#notes)
 
 ###Settings
 
@@ -340,7 +340,25 @@ require(express-orm-mvc)(functiom(err, mvc) {
     mvc.server;
     mvc.database;
     mvc.app;
-    mvc.setting;
+    mvc.settings;
     mvc.mode;
 });
+```
+
+##Notes
+
+For your convenience, you can get
+
+* ``models``
+* ``settings``
+* ``mode``
+
+from express req
+
+```js
+function (req, res, next) {
+    req.models;
+    req.settings;
+    req.mode;
+}
 ```
